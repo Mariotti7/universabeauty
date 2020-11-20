@@ -1,0 +1,11 @@
+.btn-primary-botao-estilo {
+    border-color: #D76079;
+    color:#D76079;
+    background: #ffffff;
+}
+
+.btn-primary-botao-estilo:hover{
+    color: #fff;
+    background: #D76079;
+    
+}

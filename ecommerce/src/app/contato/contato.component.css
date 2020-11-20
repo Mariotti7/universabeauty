@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.tp-estilo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+li{
+    display: inline;
+    font-size: 15px;
+ 
+}
+a{
+    text-decoration: none;
+    color: #5B5B5B;
+}
+
+a:hover{
+
+    color:#D76079;
+  
+}
