@@ -21,3 +21,14 @@ a:hover{
     color:#D76079;
   
 }
+
+.btn-colorBotao{
+    color:#D76079;
+    background: #ffffff;
+    border-color: #D76079;
+}
+
+.btn-colorBotao:hover{
+    color: #ffffff;
+    background:#D76079;
+}
