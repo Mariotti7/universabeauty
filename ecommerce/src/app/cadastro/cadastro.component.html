@@ -13,26 +13,26 @@
                         <div class="login-form">
                         <div class="control-group">
                         <label class="login-field-icon fui-user" for="login-name">Digite nome completo</label>
-                        <input type="text" class="login-field" value="" name="login-name" placeholder="Nome Completo" id="login-name" required="required">
+                        <input type="text" class="login-field" value="" name="login-name" placeholder="Nome Completo" id="login-name" [(ngModel)]="user.nome">
                         
                         </div>
 
                         <div class="control-group">
                             <label class="login-field-icon fui-user" for="login-email">Digite seu email</label>
-                            <input type="text" class="login-field" value="" name="login-email" placeholder="usuario@exemplo.com" id="login-email" required="required">
+                            <input type="text" class="login-field" value="" name="login-email" placeholder="usuario@exemplo.com" id="login-email" [(ngModel)]="user.email">
                             </div>
                         
                         <div class="control-group">
                             <label class="login-field-icon fui-lock" for="login-pass">Cadastre uma senha</label>
-                        <input type="password" class="login-field" value="" name="login-pass" placeholder="senha de 8 dígitos" id="login-pass" required="required">
+                        <input type="password" class="login-field" value="" name="login-pass" placeholder="senha de 8 dígitos" id="login-pass" [(ngModel)]="user.senha">
                         </div>
 
                         <div class="control-group">
                             <label class="login-field-icon fui-lock" for="login-confirm">Confirme sua senha</label>
-                            <input type="password" class="login-field" value="" name="login-confirm" placeholder="confirmar senha" id="login-confirm" required="required">
+                            <input type="password" class="login-field" value="" name="login-confirm" placeholder="confirmar senha" id="login-confirm" (input)='conferirSenha($event)' value="{{senha}}">
                             </div>
                         
-                        <a class="btn btn-primary btn-large btn-block text-uppercase" routerLink='/login'>cadastrar</a>
+                        <a class="btn btn-primary btn-large btn-block text-uppercase" (click)='cadastrar()'>cadastrar</a>
                         </div>
                         </div>
                         </div>
