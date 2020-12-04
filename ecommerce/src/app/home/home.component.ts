@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   faTruck = faTruck;
   faCreditCard = faCreditCard;
   faLock = faLock;
+  faWhatsapp = faWhatsapp;
 
   constructor() { }
 

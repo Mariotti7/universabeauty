@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="row mt-5 mb-5">
+        <div class="col-md-4">
+          <app-cliente></app-cliente>
+        </div>
+        <div class="col-md-8">
+  
+            <div>
+                <div class="form-group">
+                  <label for="titulo">Nome do Produto</label>
+                  <input type="text" class="form-control" id="titulo" aria-describedby="emailHelp" placeholder="Digite aqui o nome do produto" [(ngModel)]="produto.nome">
+                </div>
+  
+                <div class="form-group m-0">
+                  <label class="text-monospace" for="tema">Escolha uma categoria ou <a routerLink="/cadastrar-categoria">Cadastre um novo</a></label>
+                  <select name="categoria" id='categoria' [(ngModel)]="idCategoria" (change)="findByIdCategoria()" class="form-control">
+                    <option *ngFor="let item of listaCategoria" value={{item.id}}>
+                      {{item.categoria}}
+                    </option>
+                  </select>
+                </div>
+  
+                <div class="d-flex justify-content-end mt-3">
+                    <button type="button" class="btn btn-outline-info w-25" (click)="salvar()">Salvar</button>
+                </div>
+            </div>
+  
+        </div>
+  
+    </div>
+  </div>

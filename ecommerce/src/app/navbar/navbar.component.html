@@ -10,21 +10,38 @@
           <li class="nav-item ">
             <a class="nav-link" routerLink="/home" id="inicio">INICIO <span class="sr-only">(página atual)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/produtos" id="produtos">PRODUTOS</a>
-          </li>
+          <div *ngIf='auth.btnLogin()'>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/produtos" id="produtos">PRODUTOS</a>
+            </li>
+          </div>
           <li class="nav-item">
               <a class="nav-link" routerLink="/contato" id="contato">CONTATO</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/login" id="login">LOGIN</a>
-            </li>
+            <div *ngIf='auth.btnLogin()'>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/login" id="login">LOGIN</a>
+              </li>
+            </div>
+           
+            <div *ngIf='auth.btnLogin()'>
             <li class="nav-item">
               <a class="nav-link" routerLink="/cadastro" id="cadastro">CADASTRO</a>
             </li>
+            </div>
+            <div *ngIf='auth.btnSair()'>
             <li class="nav-item">
               <a class="nav-link" routerLink="/acesso" id="cadastro">ACESSO</a>
             </li>
+          </div>
+          <div *ngIf='auth.btnSair()'>
+            <li class="nav-item">
+              <a class="nav-link" id="sair" (click)='sair()'>SAIR</a>
+            </li>
+          </div>
+          <li class="nav-item">
+            <a class="nav-link" routerLink='/admin' id="admin">ADMIN</a>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" style="border-radius: 23px;" placeholder="Buscar" aria-label="Pesquisar">

@@ -15,6 +15,12 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { AcessoComponent } from './acesso/acesso.component';
 import { ClienteComponent } from './cliente/cliente.component';
+import { AdministradorComponent } from './administrador/administrador.component';
+import { PostCategoriaComponent } from './post-categoria/post-categoria.component';
+import { PutProdutoComponent } from './put-produto/put-produto.component';
+import { DeleteProdutoComponent } from './delete-produto/delete-produto.component';
+import { PutCategoriaComponent } from './put-categoria/put-categoria.component';
+import { DeleteCategoriaComponent } from './delete-categoria/delete-categoria.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { ClienteComponent } from './cliente/cliente.component';
     LoginComponent,
     CadastroComponent,
     AcessoComponent,
-    ClienteComponent
+    ClienteComponent,
+    AdministradorComponent,
+    PostCategoriaComponent,
+    PutProdutoComponent,
+    DeleteProdutoComponent,
+    PutCategoriaComponent,
+    DeleteCategoriaComponent
   ],
   imports: [
     BrowserModule,

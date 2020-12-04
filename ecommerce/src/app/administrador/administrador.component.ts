@@ -1,20 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { faCreditCard, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
 import { CategoriaService } from '../service/categoria.service';
 import { ProdutoService } from '../service/produto.service';
 
 @Component({
-  selector: 'app-acesso',
-  templateUrl: './acesso.component.html',
-  styleUrls: ['./acesso.component.css']
+  selector: 'app-administrador',
+  templateUrl: './administrador.component.html',
+  styleUrls: ['./administrador.component.css']
 })
-export class AcessoComponent implements OnInit {
-
-  faLock = faLock;
-  faCreditCard = faCreditCard;
-  faTruck = faTruck;
+export class AdministradorComponent implements OnInit {
 
   produto = new Produto;
   listaProduto: Produto[];
@@ -23,7 +18,6 @@ export class AcessoComponent implements OnInit {
   listaCategoria: Categoria[];
   idCategoria: number;
 
-
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService
@@ -31,9 +25,24 @@ export class AcessoComponent implements OnInit {
 
   ngOnInit(){
     window.scroll(0,0)
-
     this.findAllProdutos()
     this.findAllCategorias()
+  }
+
+  cadastrar(){
+    this.categoria.id = this.idCategoria
+    this.produto.categoria = this.categoria
+
+    if(this.produto.nome == null || this.produto.descricao == null || this.produto.preco == null || this.produto.estoque == null){
+      alert('Preencha todos os campos!')
+    }else{
+      this.produtoService.postProduto(this.produto).subscribe((resp: Produto)=>{
+        this.produto = resp
+        this.produto = new Produto()
+        alert('Produto cadastrado com sucesso!')
+        this.findAllProdutos()
+      })
+    }
   }
 
   findAllProdutos(){
@@ -49,9 +58,10 @@ export class AcessoComponent implements OnInit {
   }
 
   findByIdCategoria(){
-    this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria)=>{
+    this.categoriaService.getByIdCategoria(this.categoria.id).subscribe((resp: Categoria)=>{
       this.categoria = resp
     })
   }
+
 
 }

@@ -63,3 +63,31 @@ a{
     
 }
 
+.whatsapp-link {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 16px;
+    right: 16px;
+    background-color: #31D52C;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 21px;
+    box-shadow: 1px 1px 2px #888;
+    z-index: 1000;
+}
+.whatsapp-link:link,
+.whatsapp-link:visited{
+    transition: all .2s;
+}
+
+.whatsapp-link:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-link:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
