@@ -33,4 +33,8 @@ export class CategoriaService {
     return this.http.delete(`http://localhost:8081/categoria/${id}`, this.token)
   }
 
+  getByTituloCategoria(titulo: string){
+    return this.http.get(`http://localhost:8081/categoria/categoria/${titulo}`, this.token)
+  }
+
 }

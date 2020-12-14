@@ -73,10 +73,12 @@
         <h3 id="categoria" class="text-uppercase font-weight-bold pb-3">Categoria</h3>
       <a><h4 class="categoria">Lista de Produtos</h4></a>
      <select name="categorias" id="categorias" [(ngModel)]="idCategoria" (change)="findByIdCategoria()">
-        <option *ngFor="let item of listaCategoria" value="{{item.id}}">
+         <option value="0">-- Selecione --</option>
+        <option *ngFor="let item of listaCategoria" value="{{item.id}}"> 
             {{item.categoria}}
         </option>
      </select>
+
    <!--lista de produtos-->     
       </div>
       <div class="col-md-10 ">

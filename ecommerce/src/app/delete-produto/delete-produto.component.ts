@@ -39,7 +39,7 @@ export class DeleteProdutoComponent implements OnInit {
   btnSim(){
     this.produtoService.deleteProduto(this.produto.id).subscribe(()=>{
       this.router.navigate(['/admin'])
-      this.alert.showAlertSuccess('Produto apagada com sucesso')
+      this.alert.showAlertSuccess('Produto apagado com sucesso')
     })
   }
 

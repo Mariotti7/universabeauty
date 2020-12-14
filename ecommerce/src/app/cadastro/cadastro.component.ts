@@ -21,7 +21,8 @@ export class CadastroComponent implements OnInit {
     
     ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    window.scroll(0,0);
   }
 
   cadastrar(){

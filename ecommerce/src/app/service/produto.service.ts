@@ -32,4 +32,8 @@ export class ProdutoService {
     return this.http.delete(`http://localhost:8081/produto/${id}`, this.token)
   }
 
+  getByNomeProduto(nome : string){
+    return this.http.get(`http://localhost:8081/produto/nome/${nome}`, this.token)
+  }
+
 }

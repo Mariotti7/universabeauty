@@ -19,17 +19,24 @@ export class AdministradorComponent implements OnInit {
   listaCategoria: Categoria[];
   idCategoria: number;
 
+
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
-    private alert:AlertasService
+    private alert:AlertasService,
+ 
   ) { }
 
   ngOnInit(){
     window.scroll(0,0)
     this.findAllProdutos()
     this.findAllCategorias()
+
+    
   }
+
+  
+  
 
   cadastrar(){
     this.categoria.id = this.idCategoria

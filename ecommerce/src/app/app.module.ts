@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+//import { OrderModule } from 'ngx-order-pipe';  // Módulo da dependência de paginação
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +52,9 @@ import { AlertasComponent } from './alertas/alertas.component';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    Ng2SearchPipeModule
+    //OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
