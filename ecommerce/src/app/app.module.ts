@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 //import { OrderModule } from 'ngx-order-pipe';  // Módulo da dependência de paginação
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { DeleteProdutoComponent } from './delete-produto/delete-produto.componen
 import { PutCategoriaComponent } from './put-categoria/put-categoria.component';
 import { DeleteCategoriaComponent } from './delete-categoria/delete-categoria.component';
 import { AlertasComponent } from './alertas/alertas.component';
+import { ComprasComponent } from './compras/compras.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     DeleteProdutoComponent,
     PutCategoriaComponent,
     DeleteCategoriaComponent,
-    AlertasComponent
+    AlertasComponent,
+    ComprasComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,10 @@ import { AlertasComponent } from './alertas/alertas.component';
     Ng2SearchPipeModule
     //OrderModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

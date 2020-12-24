@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faCreditCard, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faCreditCard, faHome, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
 import { CategoriaService } from '../service/categoria.service';
@@ -18,9 +18,11 @@ export class ProdutosComponent implements OnInit {
   faTruck = faTruck;
   faCreditCard = faCreditCard;
   faLock = faLock;
+  faHome = faHome;
   
   produto = new Produto;
   listaProduto: Produto[];
+  nome: string;
 
   categoria = new Categoria;
   listaCategoria: Categoria[]
@@ -50,7 +52,4 @@ export class ProdutosComponent implements OnInit {
       this.listaCategoria = resp
     })
   }
-
-
-
 }

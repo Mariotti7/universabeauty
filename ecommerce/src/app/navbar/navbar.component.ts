@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Produto } from '../model/Produto';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
-import { ProdutoService } from '../service/produto.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,50 +13,32 @@ import { ProdutoService } from '../service/produto.service';
 export class NavbarComponent implements OnInit {
   nome: string;
 
-  produto = new Produto();
-  listaProduto: Produto[];
+  faShoppingCart = faShoppingCart;
 
   constructor(
     public auth: AuthService,
     private router: Router,
-    private produtoService: ProdutoService
+    private alert: AlertasService
   ) {}
 
   ngOnInit() {
-    this.findAllProdutos();
+    
+  }
+
+  comprar(){
+    if(environment.token == ''){
+      this.alert.showAlertInfo('Faça login primeiro!')
+      this.router.navigate(['/login'])
+    }
+    else{
+    this.router.navigate(['/compras'])
+  }
   }
 
   sair() {
     this.router.navigate(['/login']);
-    localStorage.clear();
+    environment.token = '';
   }
 
-  findAllProdutos() {
-    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-      this.listaProduto = resp;
-    });
-  }
-
-  buscar() {
-    if (this.router.navigate(['/produto']))
-      this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-        this.listaProduto = resp;
-      });
-    if (this.router.navigate(['/acesso']))
-      this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-        this.listaProduto = resp;
-      });
-  }
-
-  findByNomeProduto() {
-    if (this.nome == '') {
-      this.findAllProdutos();
-    } else {
-      this.produtoService
-        .getByNomeProduto(this.nome)
-        .subscribe((resp: Produto[]) => {
-          this.listaProduto = resp;
-        });
-    }
-  }
+ 
 }

@@ -2,15 +2,12 @@
     <div class="d-flex justify-content-center">
       <img
         class="card-img-top rounded-circle w-75 pt-3"
-        src="/assets/img/group.png"
-        alt="Imagem de capa do card"
+        src="{{foto}}"
+        alt="Imagem do Usuário"
       />
     </div>
     <div class="card-body">
-      <h5 class="card-title text-center txt">{{userLogin.nome}}</h5>
-      <p class="card-text text-center txt">
-        Seja Bem Vinda(o)!
-      </p>
+      <h5 class="card-title text-center txt">Olá, {{nome}}<fa-icon [icon]="faSmile" class="faSmile fa-1x p-2"></fa-icon></h5>
     </div>
   </div>
   <!---->

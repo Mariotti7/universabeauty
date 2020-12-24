@@ -71,7 +71,7 @@
     <div class="row">
       <div class="col-md-2">
         <h3 id="categoria" class="text-uppercase font-weight-bold pb-3">Categoria</h3>
-      <a><h4 class="categoria">Lista de Produtos</h4></a>
+      <a><h4 class="categoria">Todos os Produtos</h4></a>
      <select name="categorias" id="categorias" [(ngModel)]="idCategoria" (change)="findByIdCategoria()">
          <option value="0">-- Selecione --</option>
         <option *ngFor="let item of listaCategoria" value="{{item.id}}"> 
@@ -84,14 +84,14 @@
       <div class="col-md-10 ">
         <div class="container">
             <div class="row">
-           <div class="col-md-4" *ngFor="let item of listaProduto">
+           <div class="col-md-4 mb-3" *ngFor="let item of listaProduto">
             <div class="card-deck">
                 <div class="card">
-                  <img class="card-img-top" src="/assets/img/poseidon.jpg" alt="poseidon">
+                  <img class="card-img-top" src="{{foto}}" alt="foto do produto">
                   <div class="card-body">
                     <h5 class="card-title text-center text-uppercase">{{item.nome}}</h5>
                     <p class="card-text tp-txt text-center">R${{item.preco}}</p>
-                    <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted">5x SEM JUROS</small></p>
+                    <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted">3x SEM JUROS</small></p>
                   </div>
                 </div>
               </div>

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../model/Usuario';
 import { UserLogin } from '../model/UserLogin';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +13,19 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  logar(userLogin: UserLogin){
-    return this.http.post('http://localhost:8081/usuario/logar', userLogin)
+  logar(userLogin: UserLogin): Observable<UserLogin>{
+    return this.http.post<UserLogin>('http://localhost:8081/usuario/logar', userLogin)
   }
 
-  cadastrar(user: Usuario){
-    return this.http.post('http://localhost:8081/usuario/cadastrar', user)
+  cadastrar(user: Usuario): Observable<Usuario>{
+    return this.http.post<Usuario>('http://localhost:8081/usuario/cadastrar', user)
   }
 
   btnSair(){
     let ok = false
-    let token = localStorage.getItem('token')
+    //let token = localStorage.getItem('token')
 
-    if(token != null){
+    if(environment.token != ''){
       ok = true
     }
     return ok
@@ -31,9 +33,9 @@ export class AuthService {
 
   btnLogin(){
     let ok = false
-    let token = localStorage.getItem('token')
+    //let token = localStorage.getItem('token')
 
-    if(token == null){
+    if(environment.token == ''){
       ok = true
     }
     return ok

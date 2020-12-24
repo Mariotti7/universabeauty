@@ -18,7 +18,7 @@
                 </option>
                 </select>
               </div>
-          <div class="form-group">
+          <div class="form-group"><!--Adicionar url de foto e link do pagseguro-->
             <label class="text-monospace" for="textoProduto">Nome do produto:</label>
             <input class="form-control" id="textoProduto" name="textoProduto" rows="3" placeholder="Digite aqui o nome do produto" [(ngModel)]='produto.nome'>
         </div>
@@ -26,6 +26,10 @@
             <label class="text-monospace" for="texto">Descrição:</label>
             <input class="form-control" id="texto" rows="3" placeholder="Digite aqui a descrição do produto" [(ngModel)]='produto.descricao'>
         </div>
+        <div class="form-group">
+          <label class="text-monospace" for="foto">Foto do Produto:</label>
+          <input class="form-control" id="foto" rows="3" placeholder="Cole aqui o link do produto" [(ngModel)]='produto.fotoProduto'>
+      </div>
         <div class="form-group">
             <label class="text-monospace" for="preco">Preço:</label>
             <input class="form-control" type="number" id="preco" rows="3" placeholder="Digite aqui o preço do produto" [(ngModel)]='produto.preco'>

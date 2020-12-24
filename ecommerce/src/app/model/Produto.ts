@@ -10,4 +10,5 @@ export class Produto{
     public quantidade: number
     public categoria: Categoria
     public compra: Usuario
+    public fotoProduto: string
 }

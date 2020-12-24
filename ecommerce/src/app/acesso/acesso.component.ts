@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCreditCard, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
+import { AlertasService } from '../service/alertas.service';
 import { CategoriaService } from '../service/categoria.service';
 import { ProdutoService } from '../service/produto.service';
 
@@ -18,21 +21,19 @@ export class AcessoComponent implements OnInit {
 
   produto = new Produto;
   listaProduto: Produto[];
+  nome: string;
 
   categoria = new Categoria;
   listaCategoria: Categoria[];
   idCategoria: number;
 
- /* key: string = 'nome'; // Define um valor padrão, para quando inicializar o componente
-    reverse: boolean = false;
-    sort(key) {
-        this.key = key;
-        this.reverse = !this.reverse;
-    }*/
+  foto = environment.fotoProduto
 
   constructor(
     private produtoService: ProdutoService,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private alert: AlertasService,
+    private router: Router
   ) { }
 
   ngOnInit(){
@@ -40,6 +41,11 @@ export class AcessoComponent implements OnInit {
 
     this.findAllProdutos()
     this.findAllCategorias()
+
+    /*if(environment.token == ''){
+      this.alert.showAlertInfo('Sua seção expirou, faça o login novamente')
+      this.router.navigate(['/login'])
+    }*/
   }
 
   findAllProdutos(){
@@ -59,5 +65,7 @@ export class AcessoComponent implements OnInit {
       this.categoria = resp
     })
   }
+
+ 
 
 }

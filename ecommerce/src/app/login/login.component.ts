@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 import { UserLogin } from '../model/UserLogin';
 import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
@@ -12,6 +13,7 @@ import { AuthService } from '../service/auth.service';
 export class LoginComponent implements OnInit {
 
   userLogin = new UserLogin()
+  nome = environment.nome
 
 
   constructor(
@@ -22,8 +24,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(){
     window.scroll(0,0)
-    this.userLogin.nome = localStorage.getItem('nome')
-  
   }
 
   entrar(){
@@ -33,17 +33,24 @@ export class LoginComponent implements OnInit {
     else{
     this.auth.logar(this.userLogin).subscribe((resp: UserLogin)=>{
       this.userLogin = resp
-      localStorage.setItem('token', this.userLogin.token)
+      environment.token = this.userLogin.token
       if(this.userLogin.usuario === 'linghelmarlaadmin' && this.userLogin.senha === 'Gustavo@123'){
-        localStorage.setItem('usuario', this.userLogin.usuario)
-        localStorage.setItem('nome', this.userLogin.nome)
+        environment.usuario = this.userLogin.usuario
+        environment.nome = this.userLogin.nome
+        environment.foto = this.userLogin.foto
         this.router.navigate(['/admin'])
         this.alert.showAlertSuccess('Olá, Linghel Marla! Bem Vinda, Chefe!')
-      }else{
-        localStorage.setItem('usuario', this.userLogin.usuario)
-        localStorage.setItem('nome', this.userLogin.nome)
+      }
+      else{
+        environment.usuario = this.userLogin.usuario
+        environment.nome = this.userLogin.nome
+        environment.foto = this.userLogin.foto
         this.router.navigate(['/acesso'])
         this.alert.showAlertSuccess('Que alegria ter você aqui!')
+      }
+    }, erro =>{
+      if(erro == 500){
+        this.alert.showAlertDanger('Usuário ou senha estão incorretos!')
       }
     })
   }}

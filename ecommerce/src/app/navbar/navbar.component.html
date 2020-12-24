@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="container">
-      <div class="collapse navbar-collapse " id="conteudoNavbarSuportado">
+      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item ">
             <a class="nav-link" routerLink="/home" id="inicio">INICIO <span class="sr-only">(página atual)</span></a>
@@ -41,8 +41,8 @@
           </div>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" style="border-radius: 23px;" placeholder="Buscar" aria-label="Pesquisar" [(ngModel)]='nome'>
-          <button class="btn btn-primary-botao-estilo my-2 my-sm-0" type="submit" (click)='buscar()'>Buscar</button>
+          <fa-icon [icon]="faShoppingCart" class="faShoppingCart fa-1x p-3" (click)='comprar()'></fa-icon>
+         <h4>Ir às Compras</h4>
         </form>
       </div>
    

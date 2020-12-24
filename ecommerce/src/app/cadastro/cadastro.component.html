@@ -17,6 +17,11 @@
                         
                         </div>
 
+                        <div class="form-group">
+                            <label for="foto">Link da foto do perfil</label>
+                            <input class="form-control" type="text" name="foto" id="foto" placeholder="Link da internet" [(ngModel)]="user.foto">
+                        </div>
+
                         <div class="control-group">
                             <label class="login-field-icon fui-user" for="login-email">Digite seu email</label>
                             <input type="text" class="login-field" value="" name="login-email" placeholder="usuario@exemplo.com" id="login-email" [(ngModel)]="user.email">

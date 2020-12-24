@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { faSmile } from '@fortawesome/free-solid-svg-icons';
+import { environment } from 'src/environments/environment.prod';
 import { UserLogin } from '../model/UserLogin';
-import { AuthService } from '../service/auth.service';
+
 
 @Component({
   selector: 'app-cliente',
@@ -10,21 +12,16 @@ import { AuthService } from '../service/auth.service';
 export class ClienteComponent implements OnInit {
 
   userLogin = new UserLogin()
+  nome = environment.nome
+  foto = environment.foto
+  faSmile = faSmile;
 
-  constructor(
-    private auth: AuthService
-  ) { }
+  constructor() { }
 
   ngOnInit(){
     window.scroll(0,0)
-    this.userLogin.nome = localStorage.getItem('nome')
+    
   }
 
-  findName(){
-    this.auth.logar(this.userLogin).subscribe((resp: UserLogin)=>{
-      this.userLogin = resp
-      localStorage.setItem('nome', this.userLogin.nome)
-    })
-  }
 
 }
