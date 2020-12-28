@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCreditCard, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faCreditCard, faHome, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
@@ -28,7 +28,8 @@ export class AcessoComponent implements OnInit {
   idCategoria: number;
 
   foto = environment.fotoProduto
-
+  faHome = faHome
+  
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
@@ -42,10 +43,10 @@ export class AcessoComponent implements OnInit {
     this.findAllProdutos()
     this.findAllCategorias()
 
-    /*if(environment.token == ''){
+    if(environment.token == ''){
       this.alert.showAlertInfo('Sua seção expirou, faça o login novamente')
       this.router.navigate(['/login'])
-    }*/
+    }
   }
 
   findAllProdutos(){

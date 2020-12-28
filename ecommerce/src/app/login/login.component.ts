@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   entrar(){
-    if(this.userLogin.senha == null){
+    if(this.userLogin.senha == null || this.userLogin.usuario == null){
       this.alert.showAlertDanger("Senha inválida")
     }
     else{
@@ -46,10 +46,11 @@ export class LoginComponent implements OnInit {
         environment.nome = this.userLogin.nome
         environment.foto = this.userLogin.foto
         this.router.navigate(['/acesso'])
-        this.alert.showAlertSuccess('Que alegria ter você aqui!')
+        this.alert.showAlertSuccess('Olá!!Que alegria ter você aqui!')
       }
     }, erro =>{
       if(erro == 500){
+        console.log('Usuário ou senha estão incorretos!')
         this.alert.showAlertDanger('Usuário ou senha estão incorretos!')
       }
     })

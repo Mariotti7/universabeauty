@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faCreditCard, faHome, faLock, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { environment } from 'src/environments/environment.prod';
+import { AlertasComponent } from '../alertas/alertas.component';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
+import { AlertasService } from '../service/alertas.service';
 import { CategoriaService } from '../service/categoria.service';
 import { ProdutoService } from '../service/produto.service';
 
@@ -30,7 +34,9 @@ export class ProdutosComponent implements OnInit {
 
   constructor(
     private produtoService: ProdutoService,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private router: Router,
+    private alert: AlertasService
   ) { }
 
   ngOnInit(){
@@ -38,6 +44,10 @@ export class ProdutosComponent implements OnInit {
 
     this.findAllProdutos()
     this.findAllCategorias()
+
+    if(environment.token == ''){
+      this.router.navigate(['/produto'])
+    }
 
   }
 

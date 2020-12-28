@@ -52,7 +52,7 @@
   </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-todosprodutos" role="tabpanel" aria-labelledby="nav-todosprodutos-tab">
-     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#produtinhos"> Todos os produtos</button>
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#produtinhos"> Ver produtos</button>
     </div>
     <div class="tab-pane fade" id="nav-lancamentos" role="tabpanel" aria-labelledby="nav-lancamentos-tab">
       Lançamentos
@@ -87,23 +87,24 @@
   <!--MODAL AO CLICAR NUM PRODUTO VAI APARECER AS INFORMAÇÕES DO PRODUTO-->
 
 <!-- Modal -->
-<div class="modal fade" id="produtinhos" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true" >
+<div class="modal fade" id="produtinhos" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document" >
     <div class="modal-content" >
-      <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Nome do Produto</h5>
+      <div class="modal-header" *ngFor='let produto of listaProduto'>
+        <h5 class="modal-title" id="TituloModalCentralizado">{{produto.nome}}</h5>
+        <div class="modal-body">
+          Descrição: {{produto.descricao}}
+          <hr>
+         Preço: R${{produto.preco}}
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Foto do Produto
-        <hr>
-        Preço do produto
-      </div>
+      
+    </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adicionar ao carrinho</button>
+        <button type="button" class="btn btn-primary" routerLink='/compras' data-dismiss="modal">Ir às compras</button>
       </div>
     </div>
   </div>

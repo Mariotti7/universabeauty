@@ -23,10 +23,8 @@ export class PostCategoriaComponent implements OnInit {
 
   ngOnInit(){
     window.scroll(0,0)
-
-
     this.findAllCategorias()
-    
+  
   }
 
   cadastrar(){
@@ -37,6 +35,8 @@ export class PostCategoriaComponent implements OnInit {
         this.categoria = resp
         this.router.navigate(['/admin'])
         this.alert.showAlertSuccess('Categoria cadastrada com sucesso!')
+        this.findAllCategorias()
+        this.categoria = new Categoria()
       })
     }
   }

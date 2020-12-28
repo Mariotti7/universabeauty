@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   faFacebook,
   faInstagram,
@@ -9,7 +10,9 @@ import {
   faLock,
   faTruck,
 } from '@fortawesome/free-solid-svg-icons';
+import { environment } from 'src/environments/environment.prod';
 import { Produto } from '../model/Produto';
+import { AlertasService } from '../service/alertas.service';
 import { ProdutoService } from '../service/produto.service';
 
 @Component({
@@ -25,15 +28,27 @@ export class HomeComponent implements OnInit {
   faLock = faLock;
   faWhatsapp = faWhatsapp;
 
+  token = environment.token
   
 
-  constructor() {}
+  constructor(
+    private router: Router,
+    private alert: AlertasService
+  ) {}
 
   ngOnInit() {
     window.scroll(0, 0);
  
   }
 
+  compras(){
+    if(this.token == ''){
+      this.alert.showAlertInfo('Faça login para ir às compras')
+      this.router.navigate(['/login'])
+    }else{
+      this.router.navigate(['/compras'])
+    }
+  }
   
 
 

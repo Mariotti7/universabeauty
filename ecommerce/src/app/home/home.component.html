@@ -10,7 +10,7 @@
     </div>
     <div class="p-3 mr-3">
         <fa-icon [icon]="faCreditCard" class="faCreditCard fa-1x p-3"></fa-icon>
-        <h5 class="tp-text font-weight-bold"> PARCELAMOS EM ATÉ 5X SEM JUROS</h5>
+        <h5 class="tp-text font-weight-bold"> PARCELAMOS EM ATÉ 3X SEM JUROS</h5>
         <p class="tp-txt">Com todos os cartões de credito</p>
     </div>
     <div class="p-3">
@@ -30,40 +30,69 @@
         </h2>
     </div>
 <hr>
-<!--row com botao para ver todos os produtos-->
+<!--categoria de produtos-->
+<div class="container">
+  <nav>
+    <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+
+      <a class="nav-item nav-link active font-weight-bold categoria" id="nav-todosprodutos-tab" data-toggle="tab" href="#nav-todosprodutos" role="tab" aria-controls="nav-todosprodutos" aria-selected="true">Todos os Produtos</a>
+
+      <a class="nav-item nav-link font-weight-bold categoria" id="nav-lancamentos-tab" data-toggle="tab" href="#nav-lancamentos" role="tab" aria-controls="nav-lancamentos" aria-selected="false">Lançamentos</a>
+
+      <a class="nav-item nav-link font-weight-bold categoria" id="nav-destaques-tab" data-toggle="tab" href="#nav-destaques" role="tab" aria-controls="nav-destaques" aria-selected="false">Destaques</a>
+
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-todosprodutos" role="tabpanel" aria-labelledby="nav-todosprodutos-tab">
+     <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#produtinhos"> Ver produtos</button>
+    </div>
+    <div class="tab-pane fade mt-3" id="nav-lancamentos" role="tabpanel" aria-labelledby="nav-lancamentos-tab">
+      Lançamentos
+    </div>
+    <div class="tab-pane fade mt-3" id="nav-destaques" role="tabpanel" aria-labelledby="nav-destaques-tab">
+      Kit Beauty
+    </div>
+  </div>
+  </div>
+  <br />
+  <hr>
+
+<hr>
+<!--row com botao para ver todos os produtos
 <div class="container">
     <div class="row">
    <div class="col-md-12">
     <div class="card-deck">
         <div class="card">
-          <img class="card-img-top" src="/assets/img/poseidon.jpg" alt="poseidon">
+          <img class="card-img-top cursor" src="/assets/img/poseidon.jpg" alt="poseidon" (click)='compras()'>
           <div class="card-body">
             <h5 class="card-title text-center text-uppercase">Creme Hidratante Corporal - Poseidon</h5>
-            <p class="card-text tp-txt text-center">R$129,90</p>
-            <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted">5x DE R$25,98 SEM JUROS</small></p>
+            <p class="card-text tp-text text-center">R$129,90</p>
+            <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted"><b>3x</b> DE R$25,98 SEM JUROS</small></p>
           </div>
         </div>
         <div class="card">
-          <img class="card-img-top" src="/assets/img/creme.jpeg" alt="creme">
+          <img class="card-img-top cursor" src="/assets/img/creme.jpeg" alt="creme" (click)='compras()'>
           <div class="card-body">
             <h5 class="card-title text-uppercase text-center">Hidratante para Mãos - Toque Suave</h5>
             <p class="card-text tp-text text-center">R$159,90</p>
-            <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted"><b>5X</b> DE R$29,98 SEM JUROS</small></p>
+            <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted"><b>3X</b> DE R$29,98 SEM JUROS</small></p>
           </div>
         </div>
         <div class="card">
-          <img class="card-img-top" src="/assets/img/perfume.jpg" alt="perfume">
+          <img class="card-img-top cursor" src="/assets/img/perfume.jpg" alt="perfume" (click)='compras()'>
           <div class="card-body">
             <h5 class="card-title text-uppercase text-center">Essência Masculina - Deep Love</h5>
             <p class="card-text tp-text text-center">R$149,90</p>
-            <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted">5x DE R$31,98 SEM JUROS</small></p>
+            <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted"><b>3X</b> DE R$31,98 SEM JUROS</small></p>
           </div>
         </div>
       </div>
    </div>
     </div>
 </div>
-<hr>
+<hr>-->
 
 <!--col-md-12 com formulario pra receber informações-->
 <div class="container d-flex justify-content-center">
@@ -141,3 +170,47 @@
 <a class="whatsapp-link" href="https://web.whatsapp.com/send?phone=5511991157573" target="_blank">
  <fa-icon [icon]="faWhatsapp" class="fa-2x"></fa-icon>
 </a>
+
+ <!--MODAL AO CLICAR NUM PRODUTO VAI APARECER AS INFORMAÇÕES DO PRODUTO-->
+
+<!-- Modal -->
+<div class="modal fade" id="produtinhos" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" >
+    <div class="modal-content" >
+      <div class="modal-header">
+        <div class="modal-body">
+          <div class="card">
+            <img class="card-img-top cursor" src="/assets/img/poseidon.jpg" alt="poseidon" (click)='compras()' data-dismiss="modal">
+            <div class="card-body">
+              <h5 class="card-title text-center text-uppercase">Creme Hidratante Corporal - Poseidon</h5>
+              <p class="card-text tp-text text-center">R$129,90</p>
+              <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted"><b>3x</b> DE R$25,98 SEM JUROS</small></p>
+            </div>
+            <div class="card mb-3">
+              <img class="card-img-top cursor" src="/assets/img/creme.jpeg" alt="creme" (click)='compras()' data-dismiss="modal">
+              <div class="card-body">
+                <h5 class="card-title text-uppercase text-center">Hidratante para Mãos - Toque Suave</h5>
+                <p class="card-text tp-text text-center">R$159,90</p>
+                <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted"><b>3X</b> DE R$29,98 SEM JUROS</small></p>
+              </div>
+              <div class="card mb-3">
+                <img class="card-img-top cursor" src="/assets/img/perfume.jpg" alt="perfume" (click)='compras()'>
+                <div class="card-body">
+                  <h5 class="card-title text-uppercase text-center">Essência Masculina - Deep Love</h5>
+                  <p class="card-text tp-text text-center">R$149,90</p>
+                  <p class="card-text tp-txt font-weight-bold text-center"><small class="text-muted"><b>3X</b> DE R$31,98 SEM JUROS</small></p>
+                </div>
+              </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary" routerLink='/compras' data-dismiss="modal">Ir às compras</button>
+      </div>
+    </div>
+  </div>
+</div>
